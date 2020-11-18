@@ -34,7 +34,7 @@ Page({
     })
   },
   selectAddress(event){
-    console.log(event.currentTarget.dataset.addressId);
+    console.log('selectAddress', event.currentTarget.dataset.addressId);
 
     try {
       wx.setStorageSync('addressId', event.currentTarget.dataset.addressId);

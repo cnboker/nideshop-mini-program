@@ -23,7 +23,8 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
 
     try {
-      var addressId = wx.getStorageSync('addressId');
+      var addressId = wx.getStorageSync('addressId') || 0;
+      console.log('addressId=',addressId)
       if (addressId) {
         this.setData({
           'addressId': addressId

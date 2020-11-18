@@ -57,7 +57,7 @@ Page({
         return false
       }
       wx.showToast({
-        title: '微信登录失败',
+        title: '微信登录失败1',
       })
       return false
     }
@@ -70,7 +70,7 @@ Page({
       console.log(res)
       if (res.errno !== 0) {
         wx.showToast({
-          title: '微信登录失败',
+          title: '微信登录失败2',
         })
         return false;
       }
