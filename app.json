@@ -4,11 +4,13 @@
     "pages/catalog/catalog",
     "pages/newGoods/newGoods",
     "pages/hotGoods/hotGoods",
+    "pages/ucenter/index/index",
     "pages/ucenter/address/address",
     "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/footprint/footprint",
+    "pages/ucenter/book/borrow/index",
+    "pages/ucenter/book/return/index",
     "pages/ucenter/order/order",
-    "pages/ucenter/orderDetail/orderDetail",
     "pages/ucenter/express/express",
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/coupon/coupon",
@@ -18,7 +20,6 @@
     "pages/auth/reset/reset",
     "pages/pay/pay",
     "pages/payResult/payResult",
-    "pages/ucenter/index/index",
     "pages/topic/topic",
     "pages/comment/comment",
     "pages/commentPost/commentPost",
@@ -37,7 +38,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "仿网易严选",
+    "navigationBarTitleText": "绘本借阅",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
@@ -52,18 +53,6 @@
         "iconPath": "static/images/ic_menu_choice_nor.png",
         "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/topic/topic",
-        "iconPath": "static/images/ic_menu_topic_nor.png",
-        "selectedIconPath": "static/images/ic_menu_topic_pressed.png",
-        "text": "专题"
-      },
-      {
-        "pagePath": "pages/catalog/catalog",
-        "iconPath": "static/images/ic_menu_sort_nor.png",
-        "selectedIconPath": "static/images/ic_menu_sort_pressed.png",
-        "text": "分类"
       },
       {
         "pagePath": "pages/cart/cart",

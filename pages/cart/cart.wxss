@@ -348,5 +348,6 @@ page{
     line-height: 100rpx;
     font-size: 29rpx;
     background: #b4282d;
+    float: right;
     color: #fff;
 }

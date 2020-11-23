@@ -140,6 +140,93 @@ page{
     height: 52.078rpx;
 }
 
+.address-list{
+    padding-left: 31.25rpx;
+    background-color:#fff;
+    background-size: auto 10.5rpx;
+}
+
+.address-list .item{
+    height: 104.3rpx;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    padding-right: 31.25rpx;
+    padding-top: 26rpx;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.address-list .item:last-child{
+
+    border-bottom: none;
+}
+
+.address-list .l{
+    width: 125rpx;
+    height: 80rpx;
+    overflow: hidden;
+}
+
+.address-list .name{
+    width: 125rpx;
+    height: 43rpx;
+    font-size: 29rpx;
+    color: #333;
+    margin-bottom: 5.2rpx;
+        text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.address-list .default{
+    width: 62.5rpx;
+    height: 33rpx;
+    line-height: 28rpx;
+    text-align: center;
+    font-size: 20rpx;
+    color: #b4282d;
+    border: 1rpx solid #b4282d;
+    visibility: visible;
+}
+
+
+.address-list .c{
+    flex: 1;
+    height: auto;
+    overflow: hidden;
+}
+
+.address-list .mobile{
+
+    height: 29rpx;
+    font-size: 29rpx;
+    line-height: 29rpx;
+    overflow: hidden;
+    color: #333;
+    margin-bottom: 6.25rpx;
+}
+
+.address-list .address{
+    height: 37rpx;
+    font-size: 25rpx;
+    line-height: 37rpx;
+    overflow: hidden;
+    color: #666;
+}
+
+.address-list .r {
+    width: 77rpx;
+    height: 77rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.address-list .r image {
+    width: 52.078rpx;
+    height: 52.078rpx;
+}
+
 .order-box{
     margin-top: 20rpx;
     width: 100%;

@@ -1,91 +1,92 @@
 <view class="container">
-  <view class="profile-info">
-    <image bindtap="onUserInfoClick" class="avatar" src="{{userInfo.avatar}}"></image>
-    <view class="info">
-      <text class='name' bindtap='onUserInfoClick'>{{ userInfo.nickname || '点击登录' }}</text>
-      <!-- <text class='level' bindtap='onUserInfoClick'></text> -->
-    </view>
-    <image bindtap="onUserInfoClick" class='btn' src='/static/images/address_right.png'></image>
-  </view>
+	<view class="profile-info">
+		<image bindtap="onUserInfoClick" class="avatar" src="{{userInfo.avatar}}"></image>
+		<view class="info">
+			<text class='name' bindtap='onUserInfoClick'>{{ userInfo.nickname || '点击登录' }}</text>
+			<!-- <text class='level' bindtap='onUserInfoClick'></text> -->
+		</view>
+		<image bindtap="onUserInfoClick" class='btn' src='/static/images/address_right.png'></image>
+	</view>
 
-  <view class="user-menu">
-    <view class="item">
-      <navigator url="/pages/ucenter/order/order" class="a">
-        <text class="icon order"></text>
-        <text class="txt">我的订单</text>
-      </navigator>
-    </view>
-    <view class="item">
-      <navigator url="/pages/ucenter/coupon/coupon" class="a">
-        <text class="icon coupon"></text>
-        <text class="txt">优惠券</text>
-      </navigator>
-    </view>
-    <!-- <view class="item no-border">
-      <navigator url="url" class="a">
-        <text class="icon gift"></text>
-        <text class="txt">礼品卡</text>
-      </navigator>
-    </view> -->
-    <view class="item">
-      <navigator url="/pages/ucenter/collect/collect" class="a">
-        <text class="icon address"></text>
-        <text class="txt">我的收藏</text>
-      </navigator>
-    </view>
-    <view class="item">
-      <navigator url="/pages/ucenter/footprint/footprint" class="a">
-        <text class="icon security"></text>
-        <text class="txt">我的足迹</text>
-      </navigator>
-    </view>
-    <!-- <view class="item no-border">
-      <navigator url="url" class="a">
-        <text class="icon kefu"></text>
-        <text class="txt">会员福利</text>
-      </navigator>
-    </view> -->
-    <view class="item">
-      <navigator url="../address/address" class="a">
-        <text class="icon address"></text>
-        <text class="txt">地址管理</text>
-      </navigator>
-    </view>
-    <!-- <view class="item">
-      <navigator url="url" class="a">
-        <text class="icon security"></text>
-        <text class="txt">账号安全</text>
-      </navigator>
-    </view>
-    <view class="item no-border">
-      <navigator url="url" class="a">
-        <text class="icon kefu"></text>
-        <text class="txt">联系客服</text>
-      </navigator>
-    </view>
-    <view class="item item-bottom">
-      <navigator url="url" class="a">
-        <text class="icon help"></text>
-        <text class="txt">帮助中心</text>
-      </navigator>
-    </view> -->
-    <view class="item item-bottom">
-      <navigator url="/pages/ucenter/feedback/feedback" class="a">
-        <text class="icon feedback"></text>
-        <text class="txt">意见反馈</text>
-      </navigator>
-    </view>
-  </view>
+	<view class="user-menu">
+		<view class="item">
+			<navigator url="/pages/ucenter/mycard/index" class="a">
+				<text class="icon gift"></text>
+				<text class="txt">会员卡</text>
+			</navigator>
+		</view>
+		<view class="item">
+			<navigator url="/pages/ucenter/book/borrow/index" class="a">
+				<text class="icon order"></text>
+				<text class="txt">我的书单</text>
+			</navigator>
+		</view>
+		<view class="item">
+			<navigator url="/pages/ucenter/book/return/index" class="a">
+				<text class="icon security"></text>
+				<text class="txt">一键还书</text>
+			</navigator>
+		</view>
+		<view class="item">
+			<navigator url="/pages/ucenter/order/order?status=pending" class="a">
+				<text class="icon coupon"></text>
+				<text class="txt">待付款</text>
+			</navigator>
+		</view>
+		<view class="item">
+			<navigator url="/pages/ucenter/order/order?status=history" class="a">
+				<text class="icon order"></text>
+				<text class="txt">付款历史</text>
+			</navigator>
+		</view>
 
-  <!-- <view class="logout" bindtap="exitLogin">退出登录</view> -->
-</view>
+		<view class="item">
+			<navigator url="../address/address" class="a">
+				<text class="icon address"></text>
+				<text class="txt">地址管理</text>
+			</navigator>
+		</view>
+		
+	</view>
+	<view class="top" />
+	<navigator url="/pages/ucenter/collect/collect">
+		<view class="coupon-box">
+			<view class="item">
+				<view class="l">我的收藏</view>
+				<view class="r">
+					<image bindtap="selectCard" src="/static/images/address_right.png"></image>
+				</view>
+			</view>
+		</view>
+	</navigator>
+	<navigator url="/pages/ucenter/footprint/footprint">
+		<view class="coupon-box">
+			<view class="item">
+				<view class="l">我的足迹</view>
+				<view class="r">
+					<image bindtap="selectCard" src="/static/images/address_right.png"></image>
+				</view>
+			</view>
+		</view>
+	</navigator>
+	<navigator url="/pages/ucenter/feedback/feedback">
+		<view class="coupon-box">
+			<view class="item">
+				<view class="l">意见反馈</view>
+				<view class="r">
+					<image bindtap="selectCard" src="/static/images/address_right.png"></image>
+				</view>
+			</view>
+		</view>
+	</navigator>
 
-<view class='dialog-login' wx:if="{{showLoginDialog}}" bindtap='onCloseLoginDialog'>
-  <view class='dialog-body' catchtap='onDialogBody'>
-    <view class='title'>请选择登录方式</view>
-    <view class='content'>
-      <button type="primary" open-type="getUserInfo" bindgetuserinfo="onWechatLogin">微信登录</button>
-      <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onWechatLogin">手机号登录</button>
-    </view>
-  </view>
+	<view class='dialog-login' wx:if="{{showLoginDialog}}" bindtap='onCloseLoginDialog'>
+		<view class='dialog-body' catchtap='onDialogBody'>
+			<view class='title'>请选择登录方式</view>
+			<view class='content'>
+				<button type="primary" open-type="getUserInfo" bindgetuserinfo="onWechatLogin">微信登录</button>
+				<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onWechatLogin">手机号登录</button>
+			</view>
+		</view>
+	</view>
 </view>

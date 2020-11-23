@@ -35,7 +35,7 @@
 
 .goods-info {
   width: 750rpx;
-  height: 306rpx;
+ 
   overflow: hidden;
   background: #fff;
 }
@@ -74,7 +74,6 @@
   height: 35rpx;
   font-size: 35rpx;
   line-height: 35rpx;
-  color: #b4282d;
 }
 
 .goods-info .brand {
@@ -494,7 +493,6 @@
   height: 30rpx;
   text-align: center;
   font-size: 30rpx;
-  color: #b4282d;
 }
 
 .bottom-btn {

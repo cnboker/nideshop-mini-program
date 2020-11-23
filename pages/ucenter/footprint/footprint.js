@@ -15,7 +15,8 @@ Page({
       if (res.errno === 0) {
         console.log(res.data);
         that.setData({
-          footprintList: res.data.data
+          footprintList: res.data.data,
+          staticFileServer: api.StaticResourceServer
         });
       }
     });

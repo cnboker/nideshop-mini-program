@@ -7,12 +7,12 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-   // console.log('option', options)
-    this.getOrderList(options.status);
+
+    this.getOrderList();
   },
-  getOrderList(status){
+  getOrderList(){
     let that = this;
-    util.request(api.PayList + '?status=' + status).then(function (res) {
+    util.request(api.OrderList).then(function (res) {
       if (res.errno === 0) {
         console.log(res.data);
         that.setData({

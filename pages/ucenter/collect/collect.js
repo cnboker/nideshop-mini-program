@@ -6,6 +6,7 @@ var app = getApp();
 Page({
   data: {
     typeId: 0,
+    staticFileServer: api.StaticResourceServer,
     collectList: []
   },
   getCollectList() {

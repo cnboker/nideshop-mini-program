@@ -1,6 +1,8 @@
 const ApiRootUrl = 'http://127.0.0.1:8360/api/';
+const FileServerRootUrl = 'http://127.0.0.1:8360';
 
 module.exports = {
+  StaticResourceServer:FileServerRootUrl,
   IndexUrl: ApiRootUrl + 'index/index', //首页数据接口
   CatalogList: ApiRootUrl + 'catalog/index',  //分类目录全部分类数据接口
   CatalogCurrent: ApiRootUrl + 'catalog/current',  //分类目录当前分类数据接口
@@ -25,9 +27,11 @@ module.exports = {
   CartChecked: ApiRootUrl + 'cart/checked', // 选择或取消选择商品
   CartGoodsCount: ApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
   CartCheckout: ApiRootUrl + 'cart/checkout', // 下单前信息确认
-
+  CardList: ApiRootUrl + 'card/list', //获取卡列表
   OrderSubmit: ApiRootUrl + 'order/submit', // 提交订单
   PayPrepayId: ApiRootUrl + 'pay/prepay', //获取微信统一下单prepay_id
+  TestPayPrepayId: ApiRootUrl + 'pay/test', //获取微信统一下单prepay_id
+  OrderOverdue: ApiRootUrl + 'pay/overdue', //订单超时处理
 
   CollectList: ApiRootUrl + 'collect/list',  //收藏列表
   CollectAddOrDelete: ApiRootUrl + 'collect/addordelete',  //添加或取消收藏
@@ -52,11 +56,17 @@ module.exports = {
 
   RegionList: ApiRootUrl + 'region/list',  //获取区域列表
 
-  OrderList: ApiRootUrl + 'order/list',  //订单列表
-  OrderDetail: ApiRootUrl + 'order/detail',  //订单详情
-  OrderCancel: ApiRootUrl + 'order/cancel',  //取消订单
-  OrderExpress: ApiRootUrl + 'order/express', //物流详情
-
+  PayList: ApiRootUrl + 'pay/list',  //支付列表
+  PayCancel: ApiRootUrl + 'pay/cancel',  //取消支付
+ 
   FootprintList: ApiRootUrl + 'footprint/list',  //足迹列表
   FootprintDelete: ApiRootUrl + 'footprint/delete',  //删除足迹
+
+  OrderList: ApiRootUrl + 'order/list',  //书单列表
+  OrderDetail: ApiRootUrl + 'order/detail',  //书单详情
+  BookReturnList: ApiRootUrl + 'order/return',  //一键还书
+  Express: ApiRootUrl + 'order/express', //物流详情
+
+  Mycards: ApiRootUrl + 'mycard',  //我的卡
+
 };

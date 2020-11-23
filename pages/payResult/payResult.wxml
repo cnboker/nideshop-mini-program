@@ -16,7 +16,9 @@
       <view class="btns">
         <navigator class="btn" url="/pages/ucenter/order/order" open-type="redirect">查看订单</navigator>
         <view class="btn" bindtap='payOrder'>重新付款</view>
-      </view>
+        <view class="btn" bindtap='testPayOrder'>模拟付款成功</view>
+        <view class="btn" bindtap='testPayOrder'>删除超时订单测试</view>
+      </view>d
     </view>
   </view>
 

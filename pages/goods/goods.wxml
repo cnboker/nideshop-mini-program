@@ -1,30 +1,31 @@
 <view class="container">
   <swiper class="goodsimgs" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{gallery}}" wx:key="{{item.id}}">
-      <image src="{{item.img_url}}" background-size="cover"></image>
+      <image src="{{staticFileServer + item.img_url}}" background-size="cover"></image>
     </swiper-item>
   </swiper>
-  <view class="service-policy">
+  <!-- <view class="service-policy">
     <view class="item">30天无忧退货</view>
     <view class="item">48小时快速退款</view>
     <view class="item">满88元免邮费</view>
-  </view>
+  </view> -->
   <view class="goods-info">
     <view class="c">
       <text class="name">{{goods.name}}</text>
-      <text class="desc">{{goods.goods_brief}}</text>
-      <text class="price">￥{{goods.retail_price}}</text>
-      <view class="brand" wx:if="{{brand.name}}">
-        <navigator url="../brandDetail/brandDetail?id={{brand.brandId}}">
-          <text>{{brand.name}}</text>
+      <text class="price" wx:if="{{goods.ISBN}}">ISBN: {{goods.ISBN}}</text>
+      <text class="price" wx:if="{{goods.author}}">作者: {{goods.author}}</text>
+      <text class="price" wx:if="{{goods.publishdate}}">出版日期: {{goods.publishdate}}</text>
+      <view class="brand" wx:if="{{goods.publisher}}">
+        <navigator url="../brandDetail/brandDetail?id={{goods.publisher}}">
+          <text>出版社: {{goods.publisher}}</text>
         </navigator>
       </view>
     </view>
   </view>
-  <view class="section-nav section-attr" bindtap="switchAttrPop">
+  <!-- <view class="section-nav section-attr" bindtap="switchAttrPop">
     <view class="t">请选择规格数量</view>
     <image class="i" src="../../static/images/address_right.png" background-size="cover"></image>
-  </view>
+  </view> -->
   <!--<view class="section-nav section-act">
       <view class="t">
         <view class="label">1个促销:</view>
@@ -60,7 +61,7 @@
     </view>
   </view>
   <view class="goods-attr">
-    <view class="t">商品参数</view>
+    <view class="t">绘本介绍</view>
     <view class="l">
       <view class="item" wx:for="{{attribute}}" wx:key="{{item.name}}">
         <text class="left">{{item.name}}</text>
@@ -101,7 +102,7 @@
     <view class="b">
       <view class="item" wx:for="{{relatedGoods}}" wx:key="{{item.id}}">
         <navigator url="/pages/goods/goods?id={{item.id}}">
-          <image class="img" src="{{item.list_pic_url}}" background-size="cover"></image>
+          <image class="img" src="{{staticFileServer + item.list_pic_url}}" background-size="cover"></image>
           <text class="name">{{item.name}}</text>
           <text class="price">￥{{item.retail_price}}</text>
         </navigator>
@@ -127,7 +128,9 @@
       <view class="spec-item" wx:for="{{specificationList}}" wx:key="{{item.specification_id}}">
         <view class="name">{{item.name}}</view>
         <view class="values">
-          <view class="value {{vitem.checked ? 'selected' : ''}}" bindtap="clickSkuValue" wx:for="{{item.valueList}}" wx:for-item="vitem" wx:key="{{vitem.id}}" data-value-id="{{vitem.id}}" data-name-id="{{vitem.specification_id}}">{{vitem.value}}</view>
+          <view class="value {{vitem.checked ? 'selected' : ''}}" bindtap="clickSkuValue" wx:for="{{item.valueList}}"
+            wx:for-item="vitem" wx:key="{{vitem.id}}" data-value-id="{{vitem.id}}"
+            data-name-id="{{vitem.specification_id}}">{{vitem.value}}</view>
         </view>
       </view>
 
@@ -152,6 +155,6 @@
       <image bindtap="openCartPage" class="icon" src="/static/images/ic_menu_shoping_nor.png"></image>
     </view>
   </view>
-  <view class="c">立即购买</view>
+ 
   <view class="r" bindtap="addToCart">加入购物车</view>
 </view>

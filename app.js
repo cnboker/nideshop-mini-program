@@ -1,3 +1,4 @@
+
 App({
   onLaunch: function () {
     try {

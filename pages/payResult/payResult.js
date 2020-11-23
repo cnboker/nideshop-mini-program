@@ -15,9 +15,7 @@ Page({
       status: options.status
     })
   },
-  onReady: function () {
-
-  },
+  onReady: function () {},
   onShow: function () {
     // 页面显示
 
@@ -31,12 +29,23 @@ Page({
 
   },
   payOrder() {
-    pay.payOrder(parseInt(this.data.orderId)).then(res => {
-      this.setData({
-        status: true
+    pay
+      .payOrder(parseInt(this.data.orderId))
+      .then(res => {
+        this.setData({status: true});
+      })
+      .catch(res => {
+        util.showErrorToast('支付失败');
       });
-    }).catch(res => {
-      util.showErrorToast('支付失败');
-    });
+  },
+  testPayOrder() {
+    util
+      .request(api.TestPayPrepayId, {orderId: orderId})
+      .then((res) => {
+        Toast('支付失败');
+      });
+  },
+  testDeleteOrder(){
+    
   }
 })
