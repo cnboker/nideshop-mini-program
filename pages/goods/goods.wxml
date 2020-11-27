@@ -104,7 +104,8 @@
         <navigator url="/pages/goods/goods?id={{item.id}}">
           <image class="img" src="{{staticFileServer + item.list_pic_url}}" background-size="cover"></image>
           <text class="name">{{item.name}}</text>
-          <text class="price">￥{{item.retail_price}}</text>
+          <text class="name">{{item.author}}</text>
+          <!-- <text class="price">￥{{item.retail_price}}</text> -->
         </navigator>
       </view>
     </view>
@@ -156,5 +157,5 @@
     </view>
   </view>
  
-  <view class="r" bindtap="addToCart">加入购物车</view>
+  <view class="r" bindtap="addToCart">加入选书架</view>
 </view>

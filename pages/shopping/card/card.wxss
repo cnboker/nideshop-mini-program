@@ -82,9 +82,10 @@ page{
   overflow: hidden;
   padding-left: 30rpx;
   padding-right: 30rpx;
+  margin-top: 80rpx;
 }
 
-.item{
+.coupon-list .item{
   position: relative;
   height: 290rpx;
   width: 100%;
@@ -93,7 +94,7 @@ page{
   padding-top: 52rpx;
 }
 
-.tag{
+.coupon-list .tag{
   height: 32rpx;
   background: #A48143;
   padding-left: 16rpx;
@@ -108,7 +109,7 @@ page{
 }
 
 
-.content{
+.coupon-list .content{
   margin-top: 24rpx;
   margin-left: 40rpx;
   display: flex;
@@ -117,40 +118,42 @@ page{
   align-items: center;
 }
 
-.content .left{
+.coupon-list .content .left{
   flex: 1;
 }
 
-.name{
+.coupon-list .name{
   font-size: 44rpx;
   color: #fff;
   margin-bottom: 14rpx;
 }
 
-.price{
-  font-size: 40rpx;
+.coupon-list .price{
+  font-size: 32rpx;
   color: #fff;
   margin-bottom: 14rpx;
   text-decoration: line-through;
+  
 }
 
-.dicountPrice{
+.coupon-list .dicountPrice{
   font-size: 60rpx;
   color: #fff;
   margin-bottom: 14rpx;
+  
 }
 
-.time{
+.coupon-list .time{
   font-size: 24rpx;
   color: rgba(255,255,255, 0.8);
   line-height: 30rpx;
 }
 
-.content .right{
+.coupon-list .content .right{
   width: 162rpx;
 }
 
-.go{
+.coupon-list .go{
   height: 48rpx;
   border:none;
   width: 162rpx;
@@ -161,7 +164,7 @@ page{
   font-size: 24rpx;
 }
 
-.condition{
+.coupon-list .condition{
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -173,7 +176,7 @@ page{
   flex-direction: row;
 }
 
-.condition .txt{
+.coupon-list .condition .txt{
   display: block;
   height: 30rpx;
   flex: 1;
@@ -184,7 +187,7 @@ page{
 }
 
 
-.condition .icon{
+.coupon-list .condition .icon{
   margin-left: 30rpx;
   width: 24rpx;
   height: 24rpx;

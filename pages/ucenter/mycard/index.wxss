@@ -111,3 +111,13 @@ page{
     color: #fff;
     background: #b4282d;
 }
+.order .h .price{
+    float: right;
+    font-size: 29rpx;
+    text-decoration: line-through;
+}
+.order .h .discountPrice{
+    float: right;
+    color:red;
+    font-size: 40rpx;
+}

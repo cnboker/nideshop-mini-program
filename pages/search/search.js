@@ -4,6 +4,7 @@ var api = require('../../config/api.js');
 var app = getApp()
 Page({
   data: {
+    staticFileServer: api.StaticResourceServer,
     keywrod: '',
     searchStatus: false,
     goodsList: [],

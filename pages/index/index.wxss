@@ -199,7 +199,7 @@
   text-align: center;
   line-height: 30rpx;
   font-size: 30rpx;
-  color: #b4282d;
+  
 }
 
 .a-popular {
@@ -260,7 +260,7 @@
 .a-popular .b .price {
   width: 456rpx;
   display: block;
-  color: #b4282d;
+ 
   line-height: 50rpx;
   font-size: 33rpx;
 }
@@ -304,7 +304,7 @@
 
 .a-topic .b .np .price {
   margin-left: 20.8rpx;
-  color: #b4282d;
+ 
 }
 
 .a-topic .b .desc {
@@ -379,5 +379,5 @@
   line-height: 46rpx;
   text-align: center;
   font-size: 30rpx;
-  color: #b4282d;
+  
 }

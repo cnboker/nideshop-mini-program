@@ -6,6 +6,7 @@ var app = getApp();
 
 Page({
   data: {
+    staticFileServer: api.StaticResourceServer,
     checkedGoodsList: [],
     checkedAddress: {},
     checkedCoupon: [],
@@ -18,7 +19,8 @@ Page({
     addressId: 0,
     cardId: 0,
     couponId: 0,
-    checkedMycard: {}
+    checkedMycard: {},
+    deposit: 0,
   },
   onLoad: function (options) {
     this.updateVariable();
@@ -73,8 +75,9 @@ Page({
             freightPrice: res.data.freightPrice,
             goodsTotalPrice: res.data.goodsTotalPrice,
             orderTotalPrice: res.data.orderTotalPrice,
-            addressId: res.data.checkedAddress.id,
-            cardId: res.data.checkedMycard.cardId || 0
+            addressId: res.data.checkedAddress.id || 0,
+            cardId: res.data.checkedMycard.cardId || 0,
+            deposit: res.data.deposit
           });
           
         }
@@ -127,7 +130,7 @@ Page({
       if (res.errno === 0) {
         const orderId = res.data.orderInfo.order_sn;
         pay
-          .payOrder(parseInt(orderId))
+          .payOrder(orderId)
           .then(res => {
             wx.redirectTo({
               url: '/pages/payResult/payResult?status=1&orderId=' + orderId

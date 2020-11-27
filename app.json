@@ -58,7 +58,7 @@
         "pagePath": "pages/cart/cart",
         "iconPath": "static/images/ic_menu_shoping_nor.png",
         "selectedIconPath": "static/images/ic_menu_shoping_pressed.png",
-        "text": "购物车"
+        "text": "选书架"
       },
       {
         "pagePath": "pages/ucenter/index/index",

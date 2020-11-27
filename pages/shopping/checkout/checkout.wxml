@@ -13,7 +13,7 @@
 				<image src="/static/images/address_right.png"></image>
 			</view>
 		</view>
-		<view class="address-item address-empty" bindtap="addAddress" wx:if="{{checkedAddress.id <= 0}}">
+		<view class="address-item address-empty" bindtap="addAddress" wx:if="{{!checkedAddress.id || checkedAddress.id <= 0}}">
 			<view class="m">
 				还没有收货地址，去添加
 			</view>
@@ -23,7 +23,7 @@
 		</view>
 	</view>
 
-	<view class="address-list">
+	<view class="coupon-box">
 		<!--已经办卡会员-->
 		<view class="item" wx:if="{{checkedMycard.id > 0}}">
 			<view class="l">
@@ -40,26 +40,23 @@
 		</view>
 
 		<!--未办卡但已经选择套餐-->
-		 <view class="item" wx:if="{{checkedMycard.id === 0 && checkedMycard.cardId > 0}}">
+		<view class="item" wx:if="{{checkedMycard.id === 0 && checkedMycard.cardId > 0}}">
 			<view class="l">
 				<text class="name">{{checkedMycard.name}}</text>
 				<text class=""></text>
 			</view>
-			<view class="c">
+			<view class="l">
 				<text class="mobile"></text>
 				<text class="address">{{checkedMycard.remark}}</text>
 			</view>
 			<view class="r">
-				 <image bindtap="selectCard" src="/static/images/address_right.png"></image> 
+				<image bindtap="selectCard" src="/static/images/address_right.png"></image>
 			</view>
 		</view>
 
 		<!--未办卡也未选择套餐-->
 		<view class="item" bindtap="selectCard" wx:if="{{cardId === 0}}">
-			<view class="l">
-				<text class="name">请选择会员卡</text>
-				<!-- <text class="txt">{{couponList.length}}张</text> -->
-			</view>
+			<view class="l">请选择会员卡</view>
 			<view class="r">
 				<image bindtap="selectCard" src="/static/images/address_right.png"></image>
 			</view>
@@ -69,34 +66,38 @@
 	<view class="order-box" wx:if="{{checkedMycard.id === 0 && checkedMycard.cardId > 0}}">
 		<view class="order-item">
 			<view class="l">
-				<text class="name">费用合计</text>
+				<text class="name">会员卡价格</text>
 			</view>
 			<view class="r">
 				<text class="txt">￥{{checkedMycard.discount_price}}</text>
 			</view>
 		</view>
-		<!-- <view class="order-item">
-            <view class="l">
-                <text class="name">运费</text>
-            </view>
-            <view class="r">
-                <text class="txt">￥{{freightPrice}}</text>
-            </view>
-        </view> -->
-		<!-- <view class="order-item no-border">
-            <view class="l">
-                <text class="name">优惠券</text>
-            </view>
-            <view class="r">
-                <text class="txt">-￥{{couponPrice}}</text>
-            </view>
-        </view> -->
 	</view>
 
+	<view class="order-box" wx:if="{{deposit > 0}}">
+		<view class="order-item">
+			<view class="l">
+				<text class="name">押金</text>
+			</view>
+			<view class="r">
+				<text class="txt">￥{{deposit}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="order-box" wx:if="{{deposit > 0 && cardId > 0}}">
+		<view class="order-item">
+			<view class="l">
+				<text class="name">实付</text>
+			</view>
+			<view class="r">
+				<text class="txt">￥{{deposit + checkedMycard.discount_price}}</text>
+			</view>
+		</view>
+	</view>
 	<view class="goods-items">
 		<view class="item" wx:for="{{checkedGoodsList}}" wx:key="{{item.id}}">
 			<view class="img">
-				<image src="{{item.list_pic_url}}"></image>
+				<image src="{{staticFileServer + item.list_pic_url}}"></image>
 			</view>
 			<view class="info">
 				<view class="t">
@@ -113,4 +114,5 @@
 		<view class="l"></view>
 		<view class="r" bindtap="submitOrder">去下单</view>
 	</view>
+
 </view>

@@ -65,7 +65,7 @@ Page({
   },
   setRegionDoneStatus() {
     let that = this;
-    let doneStatus = that.data.selectRegionList.every(item => {
+    let doneStatus = that.data.selectRegionList.slice(0,2).every(item => {
       return item.id != 0;
     });
 

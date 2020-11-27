@@ -1,4 +1,9 @@
 <view class="container">
+  <view class="no-cart" wx:if="{{collectList.length <= 0}}">
+    <view class="c">
+      <text>无数据</text>
+    </view>
+  </view>
   <view class="collect-list">
     <view class="item" bindtap="openGoods" bindtouchstart="touchStart" bindtouchend="touchEnd" wx:for="{{collectList}}"
       wx:key="{{item.id}}" data-index="{{index}}">

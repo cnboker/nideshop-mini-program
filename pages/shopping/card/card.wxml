@@ -1,25 +1,25 @@
 <view class="container">
-  <!-- <view class="coupon-form">
-    <view class="input-box">
-      <input class="coupon-sn" placeholder="请输入优惠码" />
-      <image class="clear-icon" src="http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/clear-fb-dd9d604f86.png"></image>
-    </view>
-    <button class="add-btn disabled">兑换</button>
-  </view> -->
-  <!-- <view class="help">使用说明</view> -->
-  <view class="coupon-list" wx:if="{{ cardList.length > 0 }}">
-    <view class="item" wx:for="{{cardList}}" wx:key="{{item.id}}" bindtap="cardSelect" data-card-id="{{item.id}}">
-      <view class="tag">{{item.name}}</view>
-      <view class="content">
-        <view class="left">
-          <view class="dicountPrice">Y{{item.discount_price}}</view>
-          <view class="price">Y{{item.price}}</view>
-          <view class="time">{{item.remark}}</view>
-        </view>
-        <view class="right">
-          <button class="go" data-card-id="{{item.id}}"  bindtap="cardSelect">去使用</button>
-        </view>
-      </view>
-    </view>
-  </view>
+	<view class="cate-nav" style="width: 100%;">
+		<scroll-view scroll-x="true" class="cate-nav-body"  scroll-left="{{scrollLeft}}">
+			<view wx:for="{{cardList}}" class="item {{ id == item.id ? 'active' : ''}}" style="width:{{100/cardList.length}}%" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchCate">
+				<view class="name">{{item.name}}</view>
+			</view>
+		</scroll-view>
+	</view>
+
+	<view class="coupon-list" wx:if="{{ selectedItems.length > 0 }}">
+		<view class="item" wx:for="{{selectedItems}}" wx:key="{{item.id}}" bindtap="cardSelect" data-card-id="{{item.id}}">
+			<view class="tag">{{item.name}}</view>
+			<view class="content">
+				<view class="left">
+					<view class="dicountPrice">¥{{item.discount_price}}</view>
+					<view class="price">¥{{item.price}}</view>
+					<view class="time">{{item.remark}}</view>
+				</view>
+				<view class="right">
+					<button class="go" data-card-id="{{item.id}}" bindtap="cardSelect">去使用</button>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>

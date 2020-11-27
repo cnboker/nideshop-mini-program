@@ -36,9 +36,9 @@
       <view class="item {{currentSortType == 'default' ? 'active' : ''}}" bindtap="openSortFilter" id="defaultSort">
         <text class="txt">综合</text>
       </view>
-      <view class="item by-price {{currentSortType == 'price' ? 'active' : ''}} {{currentSortOrder == 'asc'  ? 'asc' : 'desc'}}" bindtap="openSortFilter" id="priceSort">
+      <!-- <view class="item by-price {{currentSortType == 'price' ? 'active' : ''}} {{currentSortOrder == 'asc'  ? 'asc' : 'desc'}}" bindtap="openSortFilter" id="priceSort">
         <text class="txt">价格</text>
-      </view>
+      </view> -->
       <view class="item {{currentSortType == 'category' ? 'active' : ''}}" bindtap="openSortFilter" id="categoryFilter">
         <text class="txt">分类</text>
       </view>
@@ -50,9 +50,10 @@
   <view class="cate-item">
     <view class="b">
       <navigator class="item {{(iindex + 1) % 2 == 0 ? 'item-b' : ''}}" url="/pages/goods/goods?id={{iitem.id}}" wx:for="{{goodsList}}" wx:for-item="iitem" wx:for-index="iindex">
-        <image class="img" src="{{iitem.list_pic_url}}" background-size="cover"></image>
+        <image class="img" src="{{staticFileServer + iitem.list_pic_url}}" background-size="cover"></image>
         <text class="name">{{iitem.name}}</text>
-        <text class="price">￥{{iitem.retail_price}}</text>
+        <!-- <text class="price">￥{{iitem.retail_price}}</text> -->
+        <text>{{iitem.author}}</text>
       </navigator>
     </view>
   </view>
@@ -60,6 +61,6 @@
 
   <view class="search-result-empty" wx:if="{{!goodsList.length && searchStatus}}">
     <image class="icon" src="http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noSearchResult-7572a94f32.png"></image>
-    <text class="text">您寻找的商品还未上架</text>
+    <text class="text">您寻找的绘本还未上架</text>
   </view>
 </scroll-view>

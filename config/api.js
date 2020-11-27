@@ -30,7 +30,7 @@ module.exports = {
   CardList: ApiRootUrl + 'card/list', //获取卡列表
   OrderSubmit: ApiRootUrl + 'order/submit', // 提交订单
   PayPrepayId: ApiRootUrl + 'pay/prepay', //获取微信统一下单prepay_id
-  TestPayPrepayId: ApiRootUrl + 'pay/test', //获取微信统一下单prepay_id
+  TestPayId: ApiRootUrl + 'pay/test', //获取微信统一下单prepay_id
   OrderOverdue: ApiRootUrl + 'pay/overdue', //订单超时处理
 
   CollectList: ApiRootUrl + 'collect/list',  //收藏列表
@@ -67,6 +67,6 @@ module.exports = {
   BookReturnList: ApiRootUrl + 'order/return',  //一键还书
   Express: ApiRootUrl + 'order/express', //物流详情
 
-  Mycards: ApiRootUrl + 'mycard',  //我的卡
+  Mycards: ApiRootUrl + 'mycard/list',  //我的卡
 
 };

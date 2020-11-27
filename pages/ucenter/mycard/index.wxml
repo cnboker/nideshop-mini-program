@@ -1,26 +1,47 @@
 <view class="container">
-    <view class="orders">
-        <navigator url="../orderDetail/orderDetail?id={{item.id}}" class="order" wx:for="{{orderList}}" wx:key="{{item.id}}">
-            <view class="h">
-                <view class="l">订单编号：{{item.order_sn}}</view>
-                <view class="r">{{item.order_status_text}}</view>
-            </view>
-            <view class="goods" wx:for="{{item.goodsList}}" wx:key="{{gitem.id}}" wx:for-item="gitem">
-                <view class="img">
-                    <image src="{{gitem.list_pic_url}}"></image>
-                </view>
-                <view class="info">
-                    <text class="name">{{gitem.goods_name}}</text>
-                    <text class="number">共{{gitem.number}}件商品</text>
-                </view>
-                <view class="status"></view>
-            </view>
-            <view class="b">
-                <view class="l">实付：￥{{item.actual_price}}</view>
-                <view class="r">
-                    <button class="btn" data-order-index="{{index}}" catchtap="payOrder" wx:if="{{item.handleOption.pay}}">去付款</button>
-                </view>
-            </view>
-        </navigator>
+	<view class="no-cart" wx:if="{{cardList.length <= 0}}">
+    <view class="c">
+      <text>无数据</text>
     </view>
+  </view>
+	<view class="orders">
+		<view class="order" wx:for="{{cardList}}" wx:key="{{item.id}}">
+			<view class="h">
+				<view class="l">{{item.name}}</view>
+				<view class="r">{{item.date}}</view>
+			</view>
+			<view class="h">
+				<view class="l">价格</view>
+				<view class="r">
+					<view class="discountPrice">￥{{item.discount_price}}</view>
+					<view class="price">￥{{item.price}}</view>
+				</view>
+			</view>
+			<view class="h">
+				<view class="l">卡类型</view>
+				<view class="r" wx:if="{{item.useTimes > 0}}">次卡</view>
+				<view class="r" wx:if="{{item.useTimes == 0}}">不限次卡</view>
+			</view>
+			<view class="h" wx:if="{{item.activateDate}}">
+				<view class="l">激活日期</view>
+				<view class="r">{{item.activateDate}}</view>
+			</view>
+			<view class="h" wx:if="{{item.expiredDate}}">
+				<view class="l">过期日期</view>
+				<view class="r">{{item.cardPrice}}</view>
+			</view>
+			<view class="h" wx:if="{{item.useTimes > 0}}">
+				<view class="l">借书次数</view>
+				<view class="r">{{item.useTimes}}</view>
+			</view>
+			<view class="h" wx:if="{{item.useTimes > 0}}">
+				<view class="l">剩余次数</view>
+				<view class="r">{{item.leftTimes}}</view>
+			</view>
+			<view class=" h">
+				<view class="l">卡状态</view>
+				<view class="r">{{item.isValid?'有效':'无效'}}</view>
+			</view>
+		</view>
+	</view>
 </view>

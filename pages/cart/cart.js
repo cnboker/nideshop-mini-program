@@ -5,6 +5,7 @@ var app = getApp();
 
 Page({
   data: {
+    staticFileServer: api.StaticResourceServer,
     cartGoods: [],
     cartTotal: {
       "goodsCount": 0,
@@ -68,7 +69,10 @@ Page({
     let that = this;
 
     if (!this.data.isEditCart) {
-      util.request(api.CartChecked, { productIds: that.data.cartGoods[itemIndex].product_id, isChecked: that.data.cartGoods[itemIndex].checked ? 0 : 1 }, 'POST').then(function (res) {
+      util.request(api.CartChecked, {
+        productIds: that.data.cartGoods[itemIndex].goods_id,
+        isChecked: that.data.cartGoods[itemIndex].checked ? 0 : 1
+      }, 'POST').then(function (res) {
         if (res.errno === 0) {
           console.log(res.data);
           that.setData({
@@ -84,10 +88,10 @@ Page({
     } else {
       //编辑状态
       let tmpCartData = this.data.cartGoods.map(function (element, index, array) {
-        if (index == itemIndex){
+        if (index == itemIndex) {
           element.checked = !element.checked;
         }
-        
+
         return element;
       });
 
@@ -98,7 +102,7 @@ Page({
       });
     }
   },
-  getCheckedGoodsCount: function(){
+  getCheckedGoodsCount: function () {
     let checkedGoodsCount = 0;
     this.data.cartGoods.forEach(function (v) {
       if (v.checked === true) {
@@ -113,9 +117,12 @@ Page({
 
     if (!this.data.isEditCart) {
       var productIds = this.data.cartGoods.map(function (v) {
-        return v.product_id;
+        return v.goods_id;
       });
-      util.request(api.CartChecked, { productIds: productIds.join(','), isChecked: that.isCheckedAll() ? 0 : 1 }, 'POST').then(function (res) {
+      util.request(api.CartChecked, {
+        productIds: productIds.join(','),
+        isChecked: that.isCheckedAll() ? 0 : 1
+      }, 'POST').then(function (res) {
         if (res.errno === 0) {
           console.log(res.data);
           that.setData({
@@ -199,7 +206,7 @@ Page({
     this.setData({
       cartGoods: this.data.cartGoods
     });
-    this.updateCart(cartItem.product_id, cartItem.goods_id, number, cartItem.id);
+    this.updateCart(cartItem.goods_id, cartItem.goods_id, number, cartItem.id);
   },
   addNumber: function (event) {
     let itemIndex = event.target.dataset.itemIndex;
@@ -209,7 +216,7 @@ Page({
     this.setData({
       cartGoods: this.data.cartGoods
     });
-    this.updateCart(cartItem.product_id, cartItem.goods_id, number, cartItem.id);
+    this.updateCart(cartItem.goods_id, cartItem.goods_id, number, cartItem.id);
 
   },
   checkoutOrder: function () {
@@ -237,27 +244,13 @@ Page({
     //获取已选择的商品
     let that = this;
 
-    let productIds = this.data.cartGoods.filter(function (element, index, array) {
-      if (element.checked == true) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-
-    if (productIds.length <= 0) {
-      return false;
-    }
-
-    productIds = productIds.map(function (element, index, array) {
-      if (element.checked == true) {
-        return element.product_id;
-      }
-    });
+    let ids = this.data.cartGoods
+      .filter(x => x.checked)
+      .map(x => x.id).join(',')
 
 
     util.request(api.CartDelete, {
-      productIds: productIds.join(',')
+      ids
     }, 'POST').then(function (res) {
       if (res.errno === 0) {
         console.log(res.data);

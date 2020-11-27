@@ -181,10 +181,6 @@ page{
     color: #333;
 }
 
-.cart-view .item.edit .t{
-    display: none;
-}
-
 .cart-view .item.edit .attr{
     text-align: right;
     background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/arrow-right1-e9828c5b35.png) right center no-repeat;

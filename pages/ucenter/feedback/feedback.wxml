@@ -11,7 +11,7 @@
     </view>
   </picker>
   <view class="fb-body">
-    <textarea class="content" placeholder="对我们网站、商品、服务，你还有什么建议吗？你还希望在严选上买到什么？请告诉我们..." />
+    <textarea class="content" placeholder="对我们网站、绘本、服务，你还有什么建议吗？请告诉我们..." />
     <view class="text-count">0/500</view>
   </view>
   <view class="fb-mobile">

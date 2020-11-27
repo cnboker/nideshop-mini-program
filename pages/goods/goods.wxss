@@ -56,7 +56,7 @@
 }
 
 .goods-info .name {
-  height: 41rpx;
+  
   margin-bottom: 5.208rpx;
   font-size: 41rpx;
   line-height: 41rpx;

@@ -111,3 +111,17 @@ page{
     color: #fff;
     background: #b4282d;
 }
+
+.order .b .cancelBtn{
+    margin-top: 19rpx;
+    height: 64.5rpx;
+    line-height: 64.5rpx;
+    text-align: center;
+    padding: 0 20rpx;
+    border-radius: 5rpx;
+    font-size: 28rpx;
+    color: #000;
+    background: #fff;
+}
+
+

@@ -1,34 +1,40 @@
 <view class="container">
-    <view class="orders">
-        <navigator url="./orderDetail/orderDetail?id={{item.id}}" class="order" wx:for="{{orderList}}"
-            wx:key="{{item.id}}">
-            <view class="h">
-                <view class="l">订单编号：{{item.order_sn}}</view>
-                <view class="r">{{item.pay_status===0?'未支付':'已支付'}}</view>
-            </view>
-            <view class="h">
-                {{item.title}}
-            </view>
+	<view class="orders">
+		<view class="no-cart" wx:if="{{orderList.length <= 0}}">
+			<view class="c">
+				<text>无数据</text>
+			</view>
+		</view>
+		<view class="order" wx:for="{{orderList}}" wx:key="{{item.id}}">
+			<view class="h">
+				<view class="l">订单编号：{{item.order_sn}}</view>
+				<view class="r">{{item.pay_status===0?'未支付':'已支付'}}</view>
+			</view>
+			<view class="h">
+				{{item.title}}
+			</view>
 
-            <view class="h">
-                <view class="l">会员卡费用</view>
-                <view class="r">￥{{item.cardPrice}}</view>
-            </view>
-            <view class="h">
-                <view class="l">押金</view>
-                <view class="r">￥{{item.deposit}}</view>
-            </view>
-            <view class="h">
-                <view class="l">实付：</view>
-                <view class="r">￥{{item.cardPrice + item.deposit}}</view>
-            </view>
-           
-            <view class="b">
-                <view class="r">
-                    <button class="btn" data-order-index="{{index}}" catchtap="payOrder"
-                        wx:if="{{item.pay_status===0}}">去付款</button>
-                </view>
-            </view>
-        </navigator>
-    </view>
+			<view class="h">
+				<view class="l">会员卡价格</view>
+				<view class="r">￥{{item.cardPrice}}</view>
+			</view>
+			<view class="h">
+				<view class="l">押金</view>
+				<view class="r">￥{{item.deposit}}</view>
+			</view>
+			<view class="h">
+				<view class="l">实付：</view>
+				<view class="r">￥{{item.cardPrice + item.deposit}}</view>
+			</view>
+
+			<view class="b">
+				<view class="l">
+					<button class="cancelBtn" data-id="{{item.order_sn}}" wx:key="{{item.id}}" catchtap="cancelOrder" wx:if="{{item.pay_status===0}}">取消付款</button>
+				</view>
+				<view class="r">
+					<button class="btn" data-id="{{item.order_sn}}" catchtap="payOrder" wx:if="{{item.pay_status===0}}">去付款</button>
+				</view>
+			</view>
+		</view>
+	</view>
 </view>
