@@ -22,9 +22,9 @@ Page({
       }
     });
   },
-  payOrder(){
+  express(){
     wx.redirectTo({
-      url: '/pages/pay/pay',
+      url: '/pages/ucenter/express/express',
     })
   },
   onReady:function(){

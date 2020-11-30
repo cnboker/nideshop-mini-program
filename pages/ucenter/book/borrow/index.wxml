@@ -23,7 +23,7 @@
 			<view class="b">
 				<view class="l"></view>
 				<view class="r">
-					<button class="btn" data-order-index="{{index}}" catchtap="payOrder" wx:if="{{item.handleOption.pay}}">查看物流</button>
+					<button class="btn" data-order-index="{{index}}" catchtap="express" wx:if="{{item.order_status == 300}}">查看物流</button>
 				</view>
 			</view>
 			

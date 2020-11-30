@@ -85,6 +85,9 @@ function post(url, data = {}) {
   return request(url, data, 'POST')
 }
 
+function put(url, data = {}) {
+  return request(url, data, 'PUT')
+}
 /**
  * 检查微信会话是否过期
  */
@@ -166,6 +169,7 @@ module.exports = {
   request,
   get,
   post,
+  put,
   redirect,
   showErrorToast,
   checkSession,

@@ -24,8 +24,8 @@
 	</view>
 
 	<view class="coupon-box">
-		<!--已经办卡会员-->
-		<view class="item" wx:if="{{checkedMycard.id > 0}}">
+		<!--已经办卡会员, 且卡有效-->
+		<view class="item" wx:if="{{checkedMycard.id > 0 && checkedMycard.isValid}}">
 			<view class="l">
 				<text class="name">{{checkedMycard.name}}</text>
 				<text class="default">默认</text>
@@ -40,14 +40,14 @@
 		</view>
 
 		<!--未办卡但已经选择套餐-->
-		<view class="item" wx:if="{{checkedMycard.id === 0 && checkedMycard.cardId > 0}}">
+		<view class="item" wx:if="{{checkedMycard.id === 0 && cardId > 0}}">
 			<view class="l">
 				<text class="name">{{checkedMycard.name}}</text>
 				<text class=""></text>
 			</view>
 			<view class="l">
-				<text class="mobile"></text>
-				<text class="address">{{checkedMycard.remark}}</text>
+				<text class="mobile">{{checkedMycard.remark}}</text>
+				<text class="address"></text>
 			</view>
 			<view class="r">
 				<image bindtap="selectCard" src="/static/images/address_right.png"></image>
@@ -55,7 +55,7 @@
 		</view>
 
 		<!--未办卡也未选择套餐-->
-		<view class="item" bindtap="selectCard" wx:if="{{cardId === 0}}">
+		<view class="item" bindtap="selectCard" wx:if="{{(checkedMycard.id > 0 && !checkedMycard.isValid) || cardId === 0}}">
 			<view class="l">请选择会员卡</view>
 			<view class="r">
 				<image bindtap="selectCard" src="/static/images/address_right.png"></image>
@@ -63,7 +63,7 @@
 		</view>
 	</view>
 
-	<view class="order-box" wx:if="{{checkedMycard.id === 0 && checkedMycard.cardId > 0}}">
+	<view class="order-box" wx:if="{{!skipPay && cardId != 0}}">
 		<view class="order-item">
 			<view class="l">
 				<text class="name">会员卡价格</text>
@@ -74,7 +74,7 @@
 		</view>
 	</view>
 
-	<view class="order-box" wx:if="{{deposit > 0}}">
+	<view class="order-box" wx:if="{{deposit > 0 && !skipPay && cardId != 0}}">
 		<view class="order-item">
 			<view class="l">
 				<text class="name">押金</text>
@@ -84,7 +84,7 @@
 			</view>
 		</view>
 	</view>
-	<view class="order-box" wx:if="{{deposit > 0 && cardId > 0}}">
+	<view class="order-box" wx:if="{{!skipPay&& cardId != 0}}">
 		<view class="order-item">
 			<view class="l">
 				<text class="name">实付</text>

@@ -21,6 +21,7 @@ Page({
     couponId: 0,
     checkedMycard: {},
     deposit: 0,
+    skipPay: false,
   },
   onLoad: function (options) {
     this.updateVariable();
@@ -36,7 +37,7 @@ Page({
       }
       if (cardId > 0) {
         this.setData({cardId})
-      }
+      }exit
 
       var couponId = wx.getStorageSync('couponId') || 0;
       if (couponId > 0) {
@@ -76,8 +77,9 @@ Page({
             goodsTotalPrice: res.data.goodsTotalPrice,
             orderTotalPrice: res.data.orderTotalPrice,
             addressId: res.data.checkedAddress.id || 0,
-            cardId: res.data.checkedMycard.cardId || 0,
-            deposit: res.data.deposit
+            cardId: res.data.checkedMycard.card_id || 0,
+            deposit: res.data.deposit,
+            skipPay: res.data.skipPay
           });
           
         }
@@ -142,7 +144,7 @@ Page({
             });
           });
       } else {
-        util.showErrorToast('下单失败');
+        util.showErrorToast(res.errmsg);
       }
     });
   }

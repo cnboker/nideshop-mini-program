@@ -1,4 +1,5 @@
 const ApiRootUrl = 'http://127.0.0.1:8360/api/';
+const AdminApiRootUrl = 'http://127.0.0.1:8360/admin/';
 const FileServerRootUrl = 'http://127.0.0.1:8360';
 
 module.exports = {
@@ -64,7 +65,8 @@ module.exports = {
 
   OrderList: ApiRootUrl + 'order/list',  //书单列表
   OrderDetail: ApiRootUrl + 'order/detail',  //书单详情
-  BookReturnList: ApiRootUrl + 'order/return',  //一键还书
+  BookReturnList: ApiRootUrl + 'order/returnList',  //还书列表
+  PutBookReturn: AdminApiRootUrl + 'commands',  //一键还书
   Express: ApiRootUrl + 'order/express', //物流详情
 
   Mycards: ApiRootUrl + 'mycard/list',  //我的卡
