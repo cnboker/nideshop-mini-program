@@ -104,6 +104,32 @@ function checkSession() {
   });
 }
 
+function wxLogin(userInfo,onSuccess,onFailure){
+  login().then((res) => {
+    return request(api.AuthLoginByWeixin, {
+      code: res,
+      userInfo
+    }, 'POST');
+  }).then((res) => {
+    console.log(res)
+    if (res.errno !== 0) {
+      wx.showToast({
+        title: '微信登录失败2',
+      })
+      return false;
+    }
+    // 设置用户信息
+    const app = getApp();
+    app.globalData.userInfo = res.data.userInfo;
+    app.globalData.token = res.data.token;
+    wx.setStorageSync('userInfo', JSON.stringify(res.data.userInfo));
+    wx.setStorageSync('token', res.data.token);
+    if(onSuccess)onSuccess();
+  }).catch((err) => {
+    if(onFailure)onFailure(err);
+    console.log(err)
+  })
+}
 /**
  * 调用微信登录
  */
@@ -175,6 +201,7 @@ module.exports = {
   checkSession,
   login,
   getUserInfo,
+  wxLogin
 }
 
 

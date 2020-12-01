@@ -5,7 +5,7 @@
 			<text class='name' bindtap='onUserInfoClick'>{{ userInfo.nickname || '点击登录' }}</text>
 			<!-- <text class='level' bindtap='onUserInfoClick'></text> -->
 		</view>
-		<image bindtap="onUserInfoClick" class='btn' src='/static/images/address_right.png'></image>
+		<!-- <image bindtap="onUserInfoClick" class='btn' src='/static/images/address_right.png'></image> -->
 	</view>
 
 	<view class="user-menu">

@@ -7,7 +7,7 @@
     </navigator>
   </view>
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-    <swiper-item wx:for="{{banner}}" wx:key="{{item.id}}">
+    <swiper-item wx:for="{{banner}}"  wx:for-item="item" wx:key="{{item.id}}">
       <navigator url="{{item.link}}">
         <image src="{{item.image_url}}" background-size="cover"></image>
       </navigator>

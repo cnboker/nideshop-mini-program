@@ -1,6 +1,7 @@
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../services/user.js');
+const { checkLogin } = require('../../services/user.js');
 
 //获取应用实例
 const app = getApp()
@@ -40,6 +41,14 @@ Page({
     });
   },
   onLoad: function (options) {
+     // 页面渲染完成
+     console.log('token=',wx.getStorageSync('token'))
+     if (!wx.getStorageSync('token')) {
+      wx.navigateTo({
+        url: '/pages/login'
+      });
+      return;
+    }
     this.getIndexData();
     util.request(api.GoodsCount).then(res => {
       this.setData({
@@ -47,8 +56,9 @@ Page({
       });
     });
   },
+  
   onReady: function () {
-    // 页面渲染完成
+   
   },
   onShow: function () {
     // 页面显示
