@@ -1,6 +1,8 @@
-const ApiRootUrl = 'http://127.0.0.1:8360/api/';
-const AdminApiRootUrl = 'http://127.0.0.1:8360/admin/';
-const FileServerRootUrl = 'http://127.0.0.1:8360';
+ const host = 'https://www.ioliz.com'
+//const host = 'http://localhost:8360'
+const ApiRootUrl = `${host}/api/`;
+const AdminApiRootUrl = `${host}/admin/`;
+const FileServerRootUrl = host;
 
 module.exports = {
   StaticResourceServer:FileServerRootUrl,

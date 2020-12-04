@@ -6,6 +6,7 @@ var app = getApp();
 
 Page({
   data: {
+    staticFileServer: api.StaticResourceServer,
     id: 0,
     brand: {},
     goodsList: [],

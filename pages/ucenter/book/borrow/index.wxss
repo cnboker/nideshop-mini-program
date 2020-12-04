@@ -51,6 +51,7 @@ page{
 .order .goods .img image{
     height:145.83rpx;
     width:145.83rpx;
+    border-radius: 3%;
 }
 
 .order .goods .info{

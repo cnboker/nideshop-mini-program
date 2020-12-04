@@ -4,6 +4,7 @@ var app = getApp();
 
 Page({
   data: {
+    staticFileServer: api.StaticResourceServer,
     bannerInfo: {
       'img_url': '',
       'name': ''

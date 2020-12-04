@@ -135,3 +135,7 @@ view,text{
   color: #ab2b2b;
   border-bottom: 2px solid #ab2b2b;
 }
+
+.img {
+  border-radius: 3%;
+}

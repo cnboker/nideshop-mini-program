@@ -45,7 +45,7 @@
 
 .m-menu {
   display: flex;
-  height: 181rpx;
+  
   width: 750rpx;
   flex-flow: row nowrap;
   align-items: center;
@@ -90,7 +90,7 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  height: 130rpx;
+  height: 80rpx;
 }
 
 .a-section .h .txt {
@@ -180,7 +180,7 @@
 
 .a-new .b .img {
   width: 302rpx;
-  height: 302rpx;
+
 }
 
 .a-new .b .name {
@@ -211,7 +211,7 @@
 .a-popular .b .item {
   border-top: 1px solid #d9d9d9;
   margin: 0 20rpx;
-  height: 264rpx;
+  height: 324rpx;
   width: 710rpx;
 }
 
@@ -220,7 +220,7 @@
   margin-right: 12rpx;
   float: left;
   width: 240rpx;
-  height: 240rpx;
+  height: 300rpx;
 }
 
 .a-popular .b .right {
@@ -330,7 +330,7 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  height: 130rpx;
+  height: 80rpx;
   font-size: 33rpx;
   color: #333;
 }
@@ -358,7 +358,7 @@
 
 .good-grid .item .img {
   width: 345rpx;
-  height: 345rpx;
+ 
   background: #f8f8f8;
   margin-bottom: 10rpx;
 }

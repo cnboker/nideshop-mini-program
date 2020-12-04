@@ -473,7 +473,7 @@
 
 .related-goods .item .img {
   width: 311.45rpx;
-  height: 311.45rpx;
+  
 }
 
 .related-goods .item .name {

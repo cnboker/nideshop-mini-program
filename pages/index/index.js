@@ -7,6 +7,7 @@ const { checkLogin } = require('../../services/user.js');
 const app = getApp()
 Page({
   data: {
+    staticFileServer: api.StaticResourceServer,
     goodsCount: 0,
     newGoods: [],
     hotGoods: [],
@@ -18,8 +19,8 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: 'NideShop',
-      desc: '绘本借阅小程序',
+      title: '绘本借阅小程序',
+      desc: '绘本借阅',
       path: '/pages/index/index'
     }
   },
@@ -43,18 +44,19 @@ Page({
   onLoad: function (options) {
      // 页面渲染完成
      console.log('token=',wx.getStorageSync('token'))
-     if (!wx.getStorageSync('token')) {
-      wx.navigateTo({
-        url: '/pages/login'
-      });
-      return;
-    }
+     
     this.getIndexData();
     util.request(api.GoodsCount).then(res => {
       this.setData({
         goodsCount: res.data.goodsCount
       });
     });
+    if (!wx.getStorageSync('token')) {
+      wx.navigateTo({
+        url: '/pages/login'
+      });
+      return;
+    }
   },
   
   onReady: function () {

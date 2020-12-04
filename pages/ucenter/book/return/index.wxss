@@ -38,7 +38,7 @@ page{
 .order .goods{
     display: flex;
     align-items: center;
-    height: 199rpx;
+    height: 155rpx;
     margin-left: 31.25rpx;
 }
 

@@ -152,7 +152,7 @@ page{
 .cate-item .item .img{
     margin-top: 10rpx;
   width: 302rpx;
-  height: 302rpx;
+  
 }
 
 .cate-item .item .name{

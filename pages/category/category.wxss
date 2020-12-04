@@ -57,7 +57,7 @@
 
 .cate-item .item .img{
   width: 302rpx;
-  height: 302rpx;
+  
 }
 
 .cate-item .item .name{
@@ -78,5 +78,5 @@
   height: 30rpx;
   text-align: center;
   font-size: 30rpx;
-  color: #b4282d;
+  
 }
